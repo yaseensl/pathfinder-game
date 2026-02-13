@@ -1,0 +1,70 @@
+<!--Yaseen Zuberi, 924089618, https://github.com/CSC317-F25/assignment-3-yaseensl#-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device=width, initial-scale=1.0">
+        <title>pathfinder</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="game-container">
+            <div id="menu-screen">
+                <h1>pathfinder</h1>
+                <p>find the path before time runs out!</p>
+                <p>collect coins and avoid the traps!</p>
+                <div class="controls">
+                    <p><strong>controls: use arrow keys or WASD to move</strong></p>
+                    <p>🟡 coins: +10 points | 💚 health boost: restore health</p>
+                    <p>🔵 speed boost: move faster | ⏱️ time bonus: +10 seconds</p>
+                    <p>🔴 traps: lose health</p>
+                </div>
+                <button onclick="game.startGame()">start game</button>
+            </div>
+
+            <div id="game-screen" class="hidden">
+                <div id="hud">
+                    <div class="stat">
+                        <span class="stat-label">level:</span>
+                        <span id="level">1</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">score:</span>
+                            <span id="score">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">time:</span>
+                            <span id="timer">60</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">health:</span>
+                            <div id="health-bar">
+                                <div id="health-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <canvas id="canvas" width="700" height="500"></canvas>
+                <div class="powerup-info" id="powerup-status"></div>
+            </div>
+
+            <div id="level-complete-screen" class="hidden">
+                <h2>level complete!</h2>
+                <p id="level-score"></p>
+                <p id="time-bonus"></p>
+                <p id="next-level-info"></p>
+                <button onclick="game.nextLevel()">next level</button>
+            </div>
+            
+            <div id="game-over-screen" class="hidden">
+                <h2>game over</h2>
+                <p id="final-score"></p>
+                <p id="levels-completed"></p>
+                <button onclick="game.returnToMenu()">main menu</button>
+                <button onclick="game.restartGame()">try again</button>
+            </div>
+        </div>
+
+       <script src="scripts/game.js"></script>
+    </body>
+</html>
